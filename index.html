@@ -50,6 +50,13 @@
   nav ul li a:hover { color: var(--accent); }
   nav ul li a:hover::after { width: 100%; }
 
+  /* ─── HAMBURGER ─── */
+  .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; width: 28px; height: 28px; }
+  .hamburger span { display: block; width: 100%; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s ease; }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 24px 80px; position: relative; }
   .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; animation: pulse 6s ease-in-out infinite; }
   @keyframes pulse { 0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: .7; } 50% { transform: translate(-50%,-50%) scale(1.15); opacity: 1; } }
@@ -157,8 +164,37 @@
   .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(.22,.61,0,1), transform 0.8s cubic-bezier(.22,.61,0,1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  @media (max-width: 768px) {
-    nav { padding: 14px 20px; } nav ul { gap: 18px; } nav ul li a { font-size: 0.78rem; }
+  @media (max-width: 640px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(10, 10, 15, 0.97);
+      backdrop-filter: blur(24px);
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .nav-links.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+    .nav-links li a {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      letter-spacing: 2px;
+    }
+    .nav-links li a::after { display: none; }
+    nav { padding: 16px 20px; }
     .project-card { grid-template-columns: 1fr; }
     .project-card:nth-child(even) .project-visual { order: 1; }
     .project-card:nth-child(even) .project-info { order: 2; }
@@ -166,10 +202,7 @@
     .about-wrap { grid-template-columns: 1fr; gap: 40px; }
     .services-grid { grid-template-columns: 1fr; }
     .contact-card { padding: 32px 24px; }
-  }
-  @media (max-width: 480px) {
-    nav ul { gap: 12px; } nav ul li a { font-size: 0.72rem; }
-    .hero h1 { font-size: 2.2rem; }
+    .hero h1 { font-size: 2.4rem; }
     .about-stats { gap: 24px; }
     .contact-row .cv { font-size: 0.82rem; }
   }
@@ -179,13 +212,18 @@
 
 <nav>
   <div class="logo">NBG</div>
-  <ul>
+  <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <section class="hero">
@@ -310,7 +348,7 @@
       <div class="ci">📧</div>
       <div>
         <div class="cl">Email</div>
-        <div class="cv"><a href="mailto:najaboughader@gmail.com">najaboughader@gmail.com</a><span class="email-sep">·</span><a href="mailto:naja-dev@outlook.com">naja-dev@outlook.com</a></div>
+        <div class="cv"><a href="/cdn-cgi/l/email-protection#7b151a111a19140e1c131a1f1e093b1c161a121755181416"><span class="__cf_email__" data-cfemail="a5cbc4cfc4c7cad0c2cdc4c1c0d7e5c2c8c4ccc98bc6cac8">[email&#160;protected]</span></a><span class="email-sep">·</span><a href="/cdn-cgi/l/email-protection#640a050e0549000112240b1110080b0b0f4a070b09"><span class="__cf_email__" data-cfemail="3759565d561a535241775842435b58585c1954585a">[email&#160;protected]</span></a></div>
       </div>
     </div>
     <div class="contact-row">
@@ -327,8 +365,8 @@
     </div>
   </div>
   <div class="social-strip">
-    <a href="https://linkedin.com/in/naja-boughader-1a2822249" target="_blank" class="social-link" title="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-    <a href="#" class="social-link" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+    <a href="https://www.linkedin.com/in/naja-bou-ghader-1a2822249/" target="_blank" class="social-link" title="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="https://github.com/Naja-crtl" target="_blank" class="social-link" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
   </div>
 </section>
 
@@ -342,13 +380,31 @@ const observer = new IntersectionObserver((entries) => {
 revealEls.forEach(el => observer.observe(el));
 
 const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => { bar.style.width = bar.dataset.width + '%'; }); barObserver.unobserve(entry.target); } });
-}, { threshold: 0.2 });
-document.querySelectorAll('.skill-group').forEach(g => barObserver.observe(g));
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => { bar.style.width = bar.dataset.width + '%'; });
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.skill-group').forEach(g => barObserver.observe(g));
 
+// ─── Nav shrink on scroll ───
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   nav.style.padding = window.scrollY > 50 ? '10px 40px' : '18px 40px';
+});
+
+// ─── Hamburger Menu ───
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
 });
 </script>
 </body>
