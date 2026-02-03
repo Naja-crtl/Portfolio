@@ -21,7 +21,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -109,6 +109,7 @@
     text-align: center;
     padding: 120px 24px 80px;
     position: relative;
+    overflow: hidden;
   }
   .hero-glow {
     position: absolute;
@@ -435,6 +436,7 @@
     padding: 140px 24px;
     text-align: center;
     position: relative;
+    overflow: hidden;
   }
   .contact-glow {
     position: absolute;
@@ -817,7 +819,7 @@
       <div class="ci">📧</div>
       <div>
         <div class="cl">Email</div>
-        <!--email_off--><div class="cv"><a href="mailto:najaboughader@gmail.com">najaboughader@gmail.com</a><span class="email-sep">·</span><a href="mailto:naja-dev@outlook.com">naja-dev@outlook.com</a></div><!--/email_off-->
+        <div class="cv"><a href="mailto:najaboughader@gmail.com">najaboughader@gmail.com</a><span class="email-sep">·</span><a href="mailto:naja-dev@outlook.com">naja-dev@outlook.com</a></div>
       </div>
     </div>
     <div class="contact-row">
@@ -904,6 +906,11 @@ navLinks.querySelectorAll('a').forEach(link => {
     hamburger.classList.remove('active');
     navLinks.classList.remove('open');
   });
+});
+</script>
+</body>
+</html>
+);
 });
 </script>
 </body>
