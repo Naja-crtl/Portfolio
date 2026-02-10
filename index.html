@@ -591,7 +591,6 @@
     .social-strip { justify-content: center; }
   }
 </style>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-70JR40R1H9"></script>
 <script>
@@ -828,7 +827,7 @@
       <div class="ci">📧</div>
       <div>
         <div class="cl">Email</div>
-        <div class="cv"><a href="/cdn-cgi/l/email-protection#026c636863606d77656a6366677042656f636b6e2c616d6f"><span class="__cf_email__" data-cfemail="345a555e55565b41535c55505146745359555d581a575b59">[email&#160;protected]</span></a><span class="email-sep">·</span><a href="/cdn-cgi/l/email-protection#adc3ccc7cc80c9c8dbedc2d8d9c1c2c2c683cec2c0"><span class="__cf_email__" data-cfemail="80eee1eae1ade4e5f6c0eff5f4ecefefebaee3efed">[email&#160;protected]</span></a></div>
+        <div class="cv"><a href="mailto:najaboughader@gmail.com">najaboughader@gmail.com</a><span class="email-sep">·</span><a href="mailto:naja-dev@outlook.com">naja-dev@outlook.com</a></div>
       </div>
     </div>
     <div class="contact-row">
@@ -856,7 +855,7 @@
 
   <!-- Social Links -->
   <div class="social-strip">
-    <a href="https://linkedin.com/in/naja-boughader-1a2822249" target="_blank" class="social-link" title="LinkedIn">
+    <a href="https://linkedin.com/in/naja-bou-ghader-1a2822249" target="_blank" class="social-link" title="LinkedIn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
     </a>
     <a href="https://github.com/Naja-crtl" target="_blank" class="social-link" title="GitHub">
@@ -871,7 +870,7 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── Scroll Reveal ───
 const revealEls = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -905,4 +904,20 @@ window.addEventListener('scroll', () => {
 
 // ─── Hamburger Menu ───
 const hamburger = document.querySelector('.hamburger');
-const navLinks = document.queryS
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
+</script>
+</body>
+</html>
