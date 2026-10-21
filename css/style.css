@@ -471,7 +471,6 @@ nav .logo {
 .contact-row .cv { color: var(--text-primary); font-size: 0.92rem; font-weight: 500; }
 .contact-row a { color: var(--accent); text-decoration: none; }
 .contact-row a:hover { text-decoration: underline; }
-.email-sep { color: var(--text-muted); margin: 0 6px; }
 
 /* ─── SOCIAL STRIP ─── */
 .social-strip {
@@ -607,3 +606,55 @@ footer {
   border-radius: 10px;
   box-shadow: 0 12px 32px rgba(0,0,0,0.45);
 }
+
+/* ─── LIVE DEMO SIGNUP ─── */
+button.project-link { background: none; border: none; padding: 0; font-family: inherit; cursor: pointer; }
+.demo-dialog {
+  margin: auto; width: min(460px, calc(100% - 32px)); max-height: calc(100% - 32px);
+  background: var(--bg-card); color: var(--text-primary);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 36px 32px 28px;
+}
+.demo-dialog::backdrop { background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); }
+.demo-dialog h3 { font-size: 1.4rem; margin-bottom: 8px; }
+.demo-intro, .demo-privacy { color: var(--text-secondary); font-size: 0.85rem; }
+.demo-intro { margin-bottom: 20px; }
+.demo-privacy { margin-top: 16px; font-size: 0.75rem; color: var(--text-muted); }
+.demo-dialog label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 14px; }
+.demo-dialog input:not([type=checkbox]) {
+  display: block; width: 100%; margin-top: 6px; padding: 11px 14px;
+  background: var(--bg-secondary); color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 10px;
+  font: inherit; font-size: 0.9rem;
+}
+.demo-dialog input:focus { outline: none; border-color: var(--accent); }
+.demo-dialog .demo-check { display: flex; align-items: center; gap: 10px; margin: 4px 0 20px; }
+.demo-dialog .demo-check input { accent-color: var(--accent); width: 16px; height: 16px; }
+.demo-dialog .btn { width: 100%; justify-content: center; }
+.demo-dialog .btn:disabled { opacity: 0.6; cursor: wait; }
+.demo-status { margin-top: 12px; font-size: 0.85rem; color: var(--accent); min-height: 1em; }
+.demo-close {
+  position: absolute; top: 14px; right: 16px;
+  background: none; border: none; color: var(--text-secondary);
+  font-size: 1.6rem; line-height: 1; cursor: pointer;
+}
+.demo-close:hover { color: var(--accent); }
+.demo-hp { position: absolute; left: -9999px; }
+.demo-dialog select {
+  display: block; width: 100%; margin-top: 6px; padding: 11px 14px;
+  background: var(--bg-secondary); color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 10px;
+  font: inherit; font-size: 0.9rem;
+}
+.demo-dialog select:focus { outline: none; border-color: var(--accent); }
+.demo-toast {
+  position: fixed; left: 50%; bottom: 24px; z-index: 1000;
+  width: max-content; max-width: calc(100% - 32px);
+  background: var(--bg-card); color: var(--text-primary);
+  border: 1px solid var(--accent); border-radius: 12px;
+  padding: 14px 20px; font-size: 0.9rem;
+  box-shadow: 0 8px 30px var(--accent-dim);
+  opacity: 0; pointer-events: none; transform: translate(-50%, 16px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.demo-toast.show { opacity: 1; transform: translate(-50%, 0); }
