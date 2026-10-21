@@ -608,7 +608,15 @@ footer {
 }
 
 /* ─── LIVE DEMO SIGNUP ─── */
-button.project-link { background: none; border: none; padding: 0; font-family: inherit; cursor: pointer; }
+.project-link.demo-open {
+  margin-top: 18px; padding: 10px 22px;
+  background: var(--accent); color: #0a0a0f;
+  border: none; border-radius: 50px;
+  font-family: inherit; cursor: pointer;
+  box-shadow: 0 0 18px var(--accent-glow);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.project-link.demo-open:hover { text-decoration: none; box-shadow: 0 0 30px var(--accent-glow); transform: translateY(-2px); }
 .demo-dialog {
   margin: auto; width: min(460px, calc(100% - 32px)); max-height: calc(100% - 32px);
   background: var(--bg-card); color: var(--text-primary);
