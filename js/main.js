@@ -75,12 +75,14 @@ demoForm.addEventListener('submit', async e => {
   demoSubmit.disabled = true;
   demoStatus.textContent = 'Sending...';
   try {
-    const res = await fetch(demoForm.action + '?isAjax=1', { method: 'POST', body: new FormData(demoForm) });
+    const res = await fetch(demoForm.action, { method: 'POST', body: new FormData(demoForm) });
     const data = await res.json();
     if (!data.success) throw new Error('Brevo rejected the signup');
     demoForm.reset();
     demoDialog.close();
-    showDemoToast('Almost done! Check your inbox and confirm your email to get the demo link and login.');
+    showDemoToast(data.returning
+      ? 'Welcome back! Your demo link and login are on their way to your inbox.'
+      : 'Almost done! Check your inbox and confirm your email to get the demo link and login.');
   } catch {
     demoStatus.textContent = 'Something went wrong. Please try again, or email me directly.';
   } finally {
