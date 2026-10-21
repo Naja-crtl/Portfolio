@@ -658,11 +658,12 @@ footer {
 .demo-toast {
   position: fixed; left: 50%; bottom: 24px; z-index: 1000;
   width: max-content; max-width: calc(100% - 32px);
-  background: var(--bg-card); color: var(--text-primary);
-  border: 1px solid var(--accent); border-radius: 12px;
-  padding: 14px 20px; font-size: 0.9rem;
-  box-shadow: 0 8px 30px var(--accent-dim);
+  background: linear-gradient(135deg, #34d399, #a3e635); color: #0a0a0f;
+  border: none; border-radius: 12px;
+  padding: 14px 20px; font-size: 0.9rem; font-weight: 600;
+  box-shadow: 0 8px 30px rgba(52, 211, 153, 0.45);
   opacity: 0; pointer-events: none; transform: translate(-50%, 16px);
   transition: opacity 0.3s, transform 0.3s;
 }
 .demo-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.demo-toast::before { content: '✓'; margin-right: 10px; font-weight: 800; }
