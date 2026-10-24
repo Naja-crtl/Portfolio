@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://portfolio.naja.live" />
 <meta property="og:type" content="website" />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=4" />
+<link rel="stylesheet" href="css/style.css?v=5" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-70JR40R1H9"></script>
 <script>
@@ -161,7 +161,7 @@
         <h3>Automotive Service Management Platform</h3>
         <p>Built for Khulasa Systems and available through them, with setup and support by me. A full-scale service management platform for automotive service businesses, job cards with full lifecycle tracking, invoicing generated straight from service orders, parts/inventory management with barcode support and stock audit trails, cash drawer reconciliation, and live dashboards for revenue and receivables. Deployed to a real production environment on IIS, with hands-on work resolving database path mismatches, SQLite WAL-mode file locking, and environment-aware configuration. Each shop runs its own copy, with subscriptions managed through a separate licensing API and admin panel I built on PostgreSQL with JWT auth.</p>
         <div class="project-tags"><span class="tag">ASP.NET Core</span><span class="tag">SQLite</span><span class="tag">PostgreSQL</span><span class="tag">IIS Deployment</span></div>
-        <button type="button" class="project-link demo-open" data-demo="AutoServicePro">Try the live demo →</button>
+        <a href="https://nb-systems.naja.live/?utm_source=portfolio&utm_medium=referral#software" target="_blank" rel="noopener" class="project-link">See it live on NB-Systems →</a>
       </div>
     </div>
 
@@ -172,7 +172,7 @@
         <h3>MarginTracker</h3>
         <p>A full business management platform for distribution and trading operations, built solo end-to-end. Covers sales orders, settlement and returns, customer and supplier accounts, inventory and purchasing, salesmen commission tracking, and profit reports with exact gross/net margins computed from per-sale cost snapshots, not estimates. Full Arabic invoice support with proper RTL layout.</p>
         <div class="project-tags"><span class="tag">ASP.NET Core</span><span class="tag">Entity Framework Core</span><span class="tag">MySQL</span><span class="tag">Tailwind CSS</span></div>
-        <button type="button" class="project-link demo-open" data-demo="MarginTracker">Try the live demo →</button>
+        <a href="https://nb-systems.naja.live/?utm_source=portfolio&utm_medium=referral#software" target="_blank" rel="noopener" class="project-link">See it live on NB-Systems →</a>
       </div>
     </div>
 
@@ -194,7 +194,7 @@
         <h3>FuelStationPro: Gas Station Management</h3>
         <p>A bilingual (English and Arabic) POS and back-office system for a gas station in Lebanon. Fuel sales by liters, USD, or LBP with a configurable exchange rate, tank levels and deliveries, product inventory with low-stock alerts, supplier purchases, and a live revenue dashboard. Role-based access for owner, manager, and cashier, installable as a PWA.</p>
         <div class="project-tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Tailwind CSS</span></div>
-        <button type="button" class="project-link demo-open" data-demo="FuelStationPro">Try the live demo →</button>
+        <a href="https://nb-systems.naja.live/?utm_source=portfolio&utm_medium=referral#software" target="_blank" rel="noopener" class="project-link">See it live on NB-Systems →</a>
       </div>
     </div>
 
@@ -205,7 +205,7 @@
         <h3>StockPOS: Point of Sale &amp; Invoicing</h3>
         <p>A freelance point-of-sale and accounting system covering quotations, sales invoices, receipts, credit notes and refunds, purchase invoices, payment vouchers, and customer/supplier accounts, with items tracked across multiple units.</p>
         <div class="project-tags"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
-        <button type="button" class="project-link demo-open" data-demo="StockPOS">Try the live demo →</button>
+        <a href="https://nb-systems.naja.live/?utm_source=portfolio&utm_medium=referral#software" target="_blank" rel="noopener" class="project-link">See it live on NB-Systems →</a>
       </div>
     </div>
 
@@ -365,34 +365,6 @@
   <p>© 2026 Naja Bou Ghader. All rights reserved. Built with precision & passion.</p>
 </footer>
 
-<!-- LIVE DEMO SIGNUP (Brevo, double opt-in) -->
-<dialog id="demo-dialog" class="demo-dialog" aria-labelledby="demo-title">
-  <form id="demo-form" method="post" action="https://signup.naja.live">
-    <button type="button" class="demo-close" aria-label="Close">×</button>
-    <h3 id="demo-title">Try the live demo</h3>
-    <p class="demo-intro">Leave your details and NB-Systems will email you the demo link and login. You'll get access as soon as you confirm your email. Already requested a demo? Check your earlier email from NB-Systems, it has every demo and the same login works for all of them.</p>
-    <label>Name<input name="FIRSTNAME" required autocomplete="name" /></label>
-    <label>Email<input type="email" name="EMAIL" required autocomplete="email" /></label>
-    <label>Company (optional)<input name="COMPANY" autocomplete="organization" /></label>
-    <label>Phone (optional)<input type="tel" name="PHONE" autocomplete="tel" /></label>
-    <label>Which demo?<select name="DEMO" required>
-      <option value="AutoServicePro">AutoServicePro (car service shops)</option>
-      <option value="FuelStationPro">FuelStationPro (gas stations)</option>
-      <option value="MarginTracker">MarginTracker (distribution and trading)</option>
-      <option value="StockPOS">StockPOS (point of sale and invoicing)</option>
-    </select></label>
-    <label class="demo-check"><input type="checkbox" name="MARKETING" value="1" checked /> Send me updates and offers from NB-Systems</label>
-    <input type="hidden" name="locale" value="en" />
-    <input type="hidden" name="SOURCE" />
-    <input type="hidden" name="MEDIUM" />
-    <input type="hidden" name="CAMPAIGN" />
-    <input type="text" name="email_address_check" class="demo-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-    <button type="submit" class="btn btn-primary">Send me the demo</button>
-    <p class="demo-status" role="status"></p>
-    <p class="demo-privacy">Your details are stored by NB-Systems with Brevo, our email provider, only to send you the demo access and one follow-up about it, and, unless you untick the box, occasional updates and offers. If you ask to buy AutoServicePro, we share your details with Khulasa Systems, who sell and license it. Every email has an unsubscribe link.</p>
-  </form>
-</dialog>
-<div id="demo-toast" class="demo-toast" role="status" aria-live="polite"></div>
 
 <script src="js/main.js?v=4"></script>
 </body>
