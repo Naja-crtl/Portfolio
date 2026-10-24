@@ -65,6 +65,20 @@ function showDemoToast(msg) {
   clearTimeout(demoToastTimer);
   demoToastTimer = setTimeout(() => demoToast.classList.remove('show'), 5000);
 }
+// First-touch UTM source, kept in localStorage so it survives later visits.
+// In memory too, so a visitor with storage blocked is still credited on this page view.
+const cleanUtm = v => (v || '').trim().toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 50);
+let utm = null;
+try { utm = JSON.parse(localStorage.getItem('nb_utm')); } catch {}
+const utmParams = new URLSearchParams(location.search);
+if (!utm && cleanUtm(utmParams.get('utm_source'))) {
+  utm = {
+    source: cleanUtm(utmParams.get('utm_source')),
+    medium: cleanUtm(utmParams.get('utm_medium')),
+    campaign: cleanUtm(utmParams.get('utm_campaign')),
+  };
+  try { localStorage.setItem('nb_utm', JSON.stringify(utm)); } catch {}
+}
 // Brevo's double opt-in link redirects here with ?confirmed=1
 if (new URLSearchParams(location.search).has('confirmed')) {
   showDemoToast('Email confirmed! Your demo link and login are on their way.');
@@ -74,6 +88,9 @@ demoForm.addEventListener('submit', async e => {
   e.preventDefault();
   demoSubmit.disabled = true;
   demoStatus.textContent = 'Sending...';
+  demoForm.SOURCE.value = utm?.source || 'direct';
+  demoForm.MEDIUM.value = utm?.medium || 'none';
+  demoForm.CAMPAIGN.value = utm?.campaign || '';
   try {
     const res = await fetch(demoForm.action, { method: 'POST', body: new FormData(demoForm) });
     const data = await res.json();
