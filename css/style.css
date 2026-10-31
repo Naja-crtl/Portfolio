@@ -215,7 +215,7 @@ nav .logo {
 .section-title .accent { color: var(--accent); }
 
 /* ─── SERVICES ─── */
-#services { padding: 120px 24px; }
+#strengths { padding: 120px 24px; }
 .services-wrap { max-width: 1100px; margin: 0 auto; }
 .services-header { text-align: center; margin-bottom: 72px; }
 .services-header p {
@@ -564,7 +564,7 @@ footer {
   .btn { width: 240px; justify-content: center; }
 
   /* Services */
-  #services { padding: 80px 24px; }
+  #strengths { padding: 80px 24px; }
   .services-grid { grid-template-columns: 1fr; }
 
   /* Projects */
