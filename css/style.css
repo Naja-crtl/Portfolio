@@ -287,6 +287,9 @@ nav .logo {
   gap: 28px;
 }
 .skill-col { display: grid; gap: 28px; align-content: start; }
+/* 716px = three 220px columns + gaps. Below that, skip the two-column step, which leaves one group alone. */
+.skills-wrap { container-type: inline-size; }
+@container (width < 716px) { .skills-grid { grid-template-columns: 1fr; } }
 .skill-group h4 {
   font-family: 'Syne', sans-serif;
   font-weight: 700;
