@@ -286,6 +286,7 @@ nav .logo {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 28px;
 }
+.skill-col { display: grid; gap: 28px; align-content: start; }
 .skill-group h4 {
   font-family: 'Syne', sans-serif;
   font-weight: 700;
